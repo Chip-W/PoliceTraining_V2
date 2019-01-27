@@ -15,7 +15,7 @@ The ymap is created by me and with the use of a couple of different resources, i
  * The entire facility has been moved to Fort Zancudo to free up LSIA for people that use the airport as it's intended to be used.
  * Cones and barrels are movable.  This means no more wrecking your car on a small traffic cone.
  * Training areas are now lit up so they can easily be used at night.
- * The big center area of the shoot house now has two working gun ranges with popup targets and scoring with the use of [esx_gunrange](https://github.com/ESX-Brasil/esx_gunrange).  One side is just a standard range with targets all at one level, the other side has targes at different elevations.
+ * The big center area of the shoot house now has two working gun ranges with popup targets and scoring with the use of [esx_gunrange](https://github.com/ESX-Brasil/esx_gunrange).  One side is just a standard range with targets all at one level, the other side has targets at different elevations.
  * This ymap includes working gates at both entrances of Fort Zancudo.  However, this does require some work when installing.
  * The teleport script is already included in the package. It can be used either on foot or in a vehicle.
  * The start area of the EVOC coarse includes a gas pump for those that use any version of LegacyFuel.  You know, because cars need gas.
@@ -26,9 +26,87 @@ The ymap is created by me and with the use of a couple of different resources, i
   * The EVOC coarse still needs a little work, I just haven't had the time to revisit it.
 
 # THE INSTALL STUFF
-Ok, here comes the long boring tedius part.  First things first, for the full experience you will need a couple of other resources installed.  I won't help you install these resources.  I will only give you the small edits needed to make them work with this training facility.
+Ok, here comes the long boring tedius part.  First things first, for the full experience you will need a couple of other resources installed.  I won't help you install these resources.  I will only give you the small edits needed to make them work with this training facility.  These resources are not required to use the facility, they just add to the experience.
   * [Holograms](https://github.com/Vortex-z/Holograms-Floating-Text)
   * [esx_doorlock](https://github.com/ESX-PUBLIC/esx_doorlock)
   * [fivem-ipl](https://github.com/ESX-PUBLIC/fivem-ipl) I don't know if my IPL edit will work with other IPL loaders.  This is needed to remove the locked in-game Fort Zancudo gates.
   
-  Now, let's get things installed.
+Now, let's get things installed.  Again, I will only give install instructions for the provided resources, not any of the extra stuff you will need to get the full experience.
+## The easy stuff
+ * Drop the [PoliceTraining] folder into your resources folder.
+ * In your server.cfg, add the following lines
+  * start esx_gunrange
+  * start esx_gunrange2
+  * start LEO_Training_Facility
+## The harder stuff
+(These are assuming undedited resources)
+### Holograms
+Find:
+ ```
+ Citizen.Wait(0)			
+				-- Hologram No. 1
+```
+Between those two lines, add:
+```
+--[[
+
+===================================================================================================================
+==========================================POLICE TRAINING CENTER===================================================
+===================================================================================================================
+
+]]--
+
+				-- LEO Training Facility - Gate 1
+		if GetDistanceBetweenCoords( -2319.18, 3399.4, 38.0, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
+			Draw3DText( -2319.18, 3399.4, 38.0  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -2319.18, 3399.4, 38.0  -2.000, "Emergency Services Training Facility", 1, 0.7, 0.7)
+			Draw3DText( -2319.18, 3399.4, 38.0  -3.200, "Main Gate", 1, 0.7, 0.7)
+		end
+
+				-- LEO Training Facility - Gate 2
+		if GetDistanceBetweenCoords( -1576.73, 2780.74, 24.89, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
+			Draw3DText( -1576.73, 2780.74, 24.89  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -1576.73, 2780.74, 24.89  -2.000, "Emergency Services Training Facility", 1, 0.7, 0.7)
+			Draw3DText( -1576.73, 2780.74, 24.89  -3.200, "Back Gate", 1, 0.7, 0.7)
+		end
+
+				-- LEO Training Facility - Weapons Training Room
+		if GetDistanceBetweenCoords( -2145.72, 3244.33, 65.0, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
+			Draw3DText( -2145.72, 3244.33, 65.0  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -2145.72, 3244.33, 65.0  -2.000, "Weapons Training Facility", 1, 0.7, 0.7)		
+		end
+
+				-- LEO Weapons Facility - Range 2
+		if GetDistanceBetweenCoords( -2119.82, 3268.78, 33.0, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
+			Draw3DText( -2119.82, 3268.78, 33.0  -0.800, "Range 2", 1, 0.1, 0.1)		
+		end
+
+				-- LEO Weapons Facility - Range 1
+		if GetDistanceBetweenCoords( -2130.32, 3275.01, 33.0, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
+			Draw3DText( -2130.32, 3275.01, 33.0  -0.800, "Range 1", 1, 0.1, 0.1)		
+		end
+
+				-- LEO Weapons Facility - Exit
+		if GetDistanceBetweenCoords( -2133.5, 3304.14, 34.50, GetEntityCoords(GetPlayerPed(-1))) < 60.0 then
+			Draw3DText( -2133.5, 3304.14, 34.50  -0.800, "EXIT HERE", 1, 0.3, 0.3)		
+		end
+
+				-- LEO Weapons Facility - Enter
+		if GetDistanceBetweenCoords( -2150.13, 3235.76, 34.50, GetEntityCoords(GetPlayerPed(-1))) < 60.0 then
+			Draw3DText( -2150.13, 3235.76, 34.50  -0.800, "ENTER HERE", 1, 0.3, 0.3)		
+		end
+
+				-- LEO Weapons Facility - Enter
+		if GetDistanceBetweenCoords( -2340.2, 3264.95, 34.50, GetEntityCoords(GetPlayerPed(-1))) < 60.0 then
+			Draw3DText( -2340.2, 3264.95, 34.50  -0.600, "NARSRT TRAINING", 1, 0.3, 0.3)	
+			Draw3DText( -2340.2, 3264.95, 34.50  -1.200, "FACILITY", 1, 0.3, 0.3)	
+		end
+
+--[[
+
+===================================================================================================================
+==========================================POLICE TRAINING CENTER===================================================
+===================================================================================================================
+
+]]--
+```
