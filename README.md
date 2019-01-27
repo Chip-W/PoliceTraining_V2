@@ -1,5 +1,5 @@
 # PoliceTraining_V2
-This one involves more than just dropping in a ymap.  It is also configured as an ESX resource because of the gun range resources used.
+This one involves more than just dropping in a ymap.  It is also configured as an ESX resource because of the gun range and doorlocks resources used.
 
 # DISCLAIMER
 I attempted to get permission to post an edited version of [esx_gunrange](https://github.com/ESX-Brasil/esx_gunrange) and have yet to get an answer back.  So, until I hear otherwise, I'm going to abide by the GPL license which allows for the freedom to redistribute my version of the software.  That being said, I have two versions included.  One is the original code with only the config file changed to my needs and the second version is the original code with the config file changed to my needs and event names changed so it doesn't conflict with the other version.
