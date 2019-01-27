@@ -42,11 +42,15 @@ Now, let's get things installed.  Again, I will only give install instructions f
 (These are assuming undedited resources)
 ### Holograms - holograms.lua
 Find:
- ```
- Citizen.Wait(0)			
-				-- Hologram No. 1
 ```
-Between those two lines, add:
+				-- Hologram No. 1
+		if GetDistanceBetweenCoords( -408.50, 1163.00, 326.00, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
+			Draw3DText( -408.50, 1163.00, 326.00  -1.400, "Your text", 4, 0.1, 0.1)
+			Draw3DText( -408.50, 1163.00, 326.00  -1.600, "goes", 4, 0.1, 0.1)
+			Draw3DText( -408.50, 1163.00, 326.00  -1.800, "here", 4, 0.1, 0.1)		
+		end
+```
+Replace with:
 ```
 --[[
 
