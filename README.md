@@ -40,7 +40,7 @@ Now, let's get things installed.  Again, I will only give install instructions f
   * start LEO_Training_Facility
 ## The harder stuff
 (These are assuming undedited resources)
-### Holograms
+### Holograms - holograms.lua
 Find:
  ```
  Citizen.Wait(0)			
@@ -58,21 +58,21 @@ Between those two lines, add:
 
 				-- LEO Training Facility - Gate 1
 		if GetDistanceBetweenCoords( -2319.18, 3399.4, 38.0, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
-			Draw3DText( -2319.18, 3399.4, 38.0  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -2319.18, 3399.4, 38.0  -0.800, "State of San Andreas", 1, 0.7, 0.7)
 			Draw3DText( -2319.18, 3399.4, 38.0  -2.000, "Emergency Services Training Facility", 1, 0.7, 0.7)
 			Draw3DText( -2319.18, 3399.4, 38.0  -3.200, "Main Gate", 1, 0.7, 0.7)
 		end
 
 				-- LEO Training Facility - Gate 2
 		if GetDistanceBetweenCoords( -1576.73, 2780.74, 24.89, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
-			Draw3DText( -1576.73, 2780.74, 24.89  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -1576.73, 2780.74, 24.89  -0.800, "State of San Andreas", 1, 0.7, 0.7)
 			Draw3DText( -1576.73, 2780.74, 24.89  -2.000, "Emergency Services Training Facility", 1, 0.7, 0.7)
 			Draw3DText( -1576.73, 2780.74, 24.89  -3.200, "Back Gate", 1, 0.7, 0.7)
 		end
 
 				-- LEO Training Facility - Weapons Training Room
 		if GetDistanceBetweenCoords( -2145.72, 3244.33, 65.0, GetEntityCoords(GetPlayerPed(-1))) < 200.0 then
-			Draw3DText( -2145.72, 3244.33, 65.0  -0.800, "New Andreas County", 1, 0.7, 0.7)
+			Draw3DText( -2145.72, 3244.33, 65.0  -0.800, "San Andreas", 1, 0.7, 0.7)
 			Draw3DText( -2145.72, 3244.33, 65.0  -2.000, "Weapons Training Facility", 1, 0.7, 0.7)		
 		end
 
@@ -98,7 +98,7 @@ Between those two lines, add:
 
 				-- LEO Weapons Facility - Enter
 		if GetDistanceBetweenCoords( -2340.2, 3264.95, 34.50, GetEntityCoords(GetPlayerPed(-1))) < 60.0 then
-			Draw3DText( -2340.2, 3264.95, 34.50  -0.600, "NARSRT TRAINING", 1, 0.3, 0.3)	
+			Draw3DText( -2340.2, 3264.95, 34.50  -0.600, "SWAT/SRT TRAINING", 1, 0.3, 0.3)	
 			Draw3DText( -2340.2, 3264.95, 34.50  -1.200, "FACILITY", 1, 0.3, 0.3)	
 		end
 
@@ -110,3 +110,76 @@ Between those two lines, add:
 
 ]]--
 ```
+### esx_doorlock - config.lua
+Find:
+```
+	--
+	-- Addons
+	--
+```
+Above that, add
+```
+	-- Fort Zancudo Great Ocean Hwy Entrance
+	{
+		objName = 'prop_gate_airport_01',
+		objCoords  = {x = -2323.39, y = 3393.71, z = 30.0},
+		textCoords = {x = -2319.81, y = 3399.76, z = 32.72},
+		authorizedJobs = { 'police' },
+		locked = true,
+		distance = 14,
+		size = 2
+	},
+
+	{
+		objName = 'prop_gate_airport_01',
+		objCoords  = {x = -2315.04, y = 3404.96, z = 30.0},
+		textCoords = {x = -2319.81, y = 3399.76, z = 32.72},
+		authorizedJobs = { 'police' },
+		locked = true,
+		distance = 14,
+		size = 2
+	},
+
+	-- Fort Zancudo Route 68 Entrance
+	{
+		objName = 'prop_gate_airport_01',
+		objCoords  = {x = -1571.79, y = 2785.86, z = 17.0},
+		textCoords = {x = -1576.25, y = 2780.15, z = 18.5},
+		authorizedJobs = { 'police' },
+		locked = true,
+		distance = 14,
+		size = 2
+	},
+
+	{
+		objName = 'prop_gate_airport_01',
+		objCoords  = {x = -1581.76, y = 2775.67, z = 17.0},
+		textCoords = {x = -1576.25, y = 2780.15, z = 18.5},
+		authorizedJobs = { 'police' },
+		locked = true,
+		distance = 14,
+		size = 2
+	},
+```
+### Fivem-IPL - client.lua
+Find
+```
+	-- Zancudo Gates (GTAO like): -1600.301, 2806.731, 18.797
+	RequestIpl("CS3_07_MPGates")
+```
+Change to:
+```
+	--== FOR POLICE TRAINING FACILITY ==--
+	--Zancudo Gates (GTAO like): -1600.30100000, 2806.73100000, 18.79683000
+	--RequestIpl(“CS3_07_MPGates”)
+	if IsIplActive('CS3_07_MPGates') then
+		RemoveIpl("CS3_07_MPGates")
+	end
+```
+DONE!
+
+The only thing I can take credit for is the just the ymap itself.
+You may not redistribute the ymap without my permission.
+All other resources used, the credit goes to their authors as I only made edits to make them work as needed for the Police Training Facility
+
+See this post on the FiveM forums for screen shots.
