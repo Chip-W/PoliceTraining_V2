@@ -1,5 +1,5 @@
 Locales['en'] = {
-	['gunrange'] = " Gunrange ",
+	['gunrange2'] = " Gunrange ",
 	['actionMessage'] = "Press ~INPUT_PICKUP~ to open menu.",
 	['difficulty'] = " Difficulty ",
 	['easy'] = " Easy ",
